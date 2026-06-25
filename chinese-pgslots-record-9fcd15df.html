@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg游戏 · 知识库入口 | 稳定指南与信息页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 页面头部 */
+        .page-header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #1f2a3f;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .subtitle {
+            font-size: 1rem;
+            color: #5b6a7c;
+            border-top: 1px solid #d0d7de;
+            display: inline-block;
+            padding-top: 0.6rem;
+        }
+
+        /* 网格 / 卡片 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+        }
+
+        @media (min-width: 680px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid .full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+            border: 1px solid #e4e9ef;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07), 0 0 0 1px #d2dae5;
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eef2f6;
+            color: #1f2a3f;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h2 i {
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: #6c89a8;
+            border-radius: 4px;
+            margin-right: 0.3rem;
+        }
+
+        .card p {
+            margin-bottom: 0.85rem;
+            color: #2c3a4e;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            margin: 0.6rem 0 0.8rem 0;
+            list-style: none;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #6c89a8;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eaf0f8;
+            color: #2e4b6a;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-right: 0.3rem;
+        }
+
+        .info-note {
+            background: #f8faff;
+            border-left: 4px solid #6c89a8;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f2a3f;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #3f4f64;
+        }
+
+        .link-word {
+            color: #2b5a82;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .link-word:hover {
+            border-bottom-color: #2b5a82;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.4rem 1.4rem;
+            border: 1px solid #b8c9dc;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2e4b6a;
+            background: transparent;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-outline:hover {
+            background: #eaf0f8;
+            border-color: #6c89a8;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce3ed;
+            margin: 1.2rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d9e0ea;
+            color: #6b7c90;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 页眉 -->
+    <header class="page-header">
+        <h1>📚 pg游戏 · 信息指引</h1>
+        <div class="subtitle">稳定入口 · 常见疑问 · 场景说明</div>
+    </header>
+
+    <div class="grid">
+
+        <!-- 卡片：介绍 / 说明区 -->
+        <div class="card full-width">
+            <h2><i></i> 关于这个知识页</h2>
+            <p>这是一个围绕 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 整理的轻量资料区，适合初次了解或希望快速确认基本信息的浏览者。页面内容侧重说明与引导，并非官方站点，而是自建的稳定介绍入口。</p>
+            <p>如果你正在寻找 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 的准确访问方式、功能概述或常见疑问，下面几个卡片整理了不同角度的信息，方便对照参考。</p>
+            <div class="info-note">
+                ⚡ 本站为独立知识整理页，内容保持客观，不包含登录、下载或账户相关操作。
+            </div>
+        </div>
+
+        <!-- 卡片：特点与结构 -->
+        <div class="card">
+            <h2><i></i> 页面特点</h2>
+            <ul>
+                <li><span class="badge">目录感</span> 分区清晰，每个卡片承载一个主题</li>
+                <li><span class="badge">说明为主</span> 侧重功能介绍与使用场景，避免浮夸描述</li>
+                <li><span class="badge">稳定入口</span> 推荐直接通过 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 获取完整服务</li>
+                <li><span class="badge">轻量设计</span> 浅灰背景 + 细边框，阅读负担低</li>
+            </ul>
+            <p style="margin-top:0.8rem;">所有信息仅供参考，实际情况以服务方最新页面为准。</p>
+        </div>
+
+        <!-- 卡片：使用场景 -->
+        <div class="card">
+            <h2><i></i> 常见使用场景</h2>
+            <p><strong>场景一 · 初次了解</strong><br>想确认 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 提供哪些内容，通过本站的概述快速建立认知框架。</p>
+            <p><strong>场景二 · 寻找稳定入口</strong><br>当需要反复访问时，可直接记住或收藏本站，再通过链接前往。</p>
+            <p><strong>场景三 · 对照疑问</strong><br>FAQ 卡片中收录了一些常规问题，可以先浏览，减少重复搜索。</p>
+        </div>
+
+        <!-- 卡片：提示区 -->
+        <div class="card">
+            <h2><i></i> 使用提示</h2>
+            <p>🔹 访问 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 时，建议使用现代浏览器，确保页面交互流畅。</p>
+            <p>🔹 如果遇到页面加载异常，可先检查网络，或稍后重试。本站不提供 VPN 或代理相关建议。</p>
+            <p>🔹 任何第三方平台或推广链接均与本站无关，注意甄别信息来源。</p>
+            <div style="margin-top:1rem;">
+                <a href="https://chinese-pgslots.com" class="btn-outline">pg游戏</a>
+            </div>
+        </div>
+
+        <!-- 卡片：FAQ 摘要 -->
+        <div class="card full-width">
+            <h2><i></i> 常见疑问 · 简短摘要</h2>
+            <div class="faq-item">
+                <strong>Q: 这个页面和 pg游戏 是什么关系？</strong>
+                <p>它是独立整理的知识介绍页，旨在提供稳定的说明与入口指引，并嵌入指向 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 的链接。页面内容由编辑维护，不代表官方立场。</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q: 信息更新频率如何？</strong>
+                <p>本页随内容需要不定期修订，核心链接与基本说明保持稳定。如果发现重要变化，会及时调整描述。</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q: 需要注册或登录才能使用 pg游戏 吗？</strong>
+                <p>具体流程取决于对应平台的规定。本页仅提供入口信息，不涉及账户注册步骤。请通过 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 自行了解。</p>
+            </div>
+            <hr>
+            <p style="font-size:0.95rem; color:#4a5c72;">更多细节建议直接查看服务页面中的帮助或常见问题板块。</p>
+        </div>
+
+        <!-- 卡片：相关信息区 -->
+        <div class="card full-width">
+            <h2><i></i> 相关信息</h2>
+            <p>本知识库入口不收集用户信息，不嵌入第三方跟踪脚本。如果你希望了解更多关于 <a href="https://chinese-pgslots.com" class="link-word">pg游戏</a> 的功能模块、界面语言、分类概览等内容，访问主站是最直接的途径。</p>
+            <p style="margin-top:0.6rem;">📌 遇到疑问时，优先查阅官方说明或联系客服。本站仅做基础信息整理，无法提供技术支持或帐户操作。</p>
+            <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.6rem;">
+                <span class="badge">稳定入口</span>
+                <span class="badge">说明页</span>
+                <span class="badge">目录式布局</span>
+                <span class="badge">温和语气</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        pg游戏 · 知识库入口 &nbsp;|&nbsp; 内容仅供信息参考
+    </div>
+
+</div>
+</body>
+</html>
